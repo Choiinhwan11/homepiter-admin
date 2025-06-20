@@ -27,16 +27,7 @@ public class CategoryDTO {
         );
     }
 
-    @Data
-    public class CategoryCreateRequest {
-        private String name;
-        private Long parentId;
-    }
 
-    @Data
-    public class CategoryUpdateRequest {
-        private String name;
-    }
 
 
     }

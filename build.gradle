@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'org.springframework.boot' version '3.2.0'
-    id 'io.spring.dependency-management' version '1.1.4'
+    id 'io.spring.dependency-management' version '1.1.7' // ← 수정
 }
 
 group = 'com.homepiter'
@@ -19,6 +19,7 @@ dependencies {
 
     implementation 'mysql:mysql-connector-java:8.0.33'
 
+    // 로컬 모듈 의존성
     implementation project(':HomePiter_Coommons')
 
     compileOnly 'org.projectlombok:lombok:1.18.30'
