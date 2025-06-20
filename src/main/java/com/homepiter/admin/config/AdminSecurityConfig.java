@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,14 +23,15 @@ public class AdminSecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final AdminUserDetailsService adminUserDetailsService;
 
+
     @Bean
     public SecurityFilterChain adminFilterChain(HttpSecurity http) throws Exception {
         http
-                .securityMatcher("/api/admin/**") // admin 관련 요청만 이 설정 사용
+                .securityMatcher("/api/admin/**")
                 .csrf().disable()
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/admin/login").permitAll()
-                        .anyRequest().hasRole("ADMIN") // ADMIN 권한 필요
+                        .anyRequest().hasRole("ADMIN")
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -39,6 +41,7 @@ public class AdminSecurityConfig {
 
         return http.build();
     }
+
 
     @Bean
     public AuthenticationManager adminAuthManager(HttpSecurity http) throws Exception {
