@@ -1,5 +1,7 @@
 package com.homepiter.admin.config;
 
+import com.homepiter.admin.admin.repository.AdminRepository;
+import com.homepiter.commons.entity.Admin;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,12 +19,12 @@ public class AdminUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Admin admin = adminRepository.findByEmail(username)
+        Admin admin = (Admin) adminRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Admin not found"));
 
         return User.builder()
-                .username(admin.getEmail())
-                .password(admin.getPassword())
+                .username(admin.getAdminEmail())
+                .password(admin.getAdminPassword())
                 .roles("ADMIN")
                 .build();
     }

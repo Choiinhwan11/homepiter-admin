@@ -1,4 +1,4 @@
-package com.homepiter.admin.config;
+package com.homepiter.admin.admin.repository;
 
 import com.homepiter.commons.entity.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
