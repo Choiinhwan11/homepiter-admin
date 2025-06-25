@@ -1,7 +1,7 @@
 package com.homepiter.admin.config;
 
+import com.homepiter.admin.admin.entity.Admin;
 import com.homepiter.admin.admin.repository.AdminRepository;
-import com.homepiter.commons.entity.Admin;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -28,4 +28,9 @@ public class AdminUserDetailsService implements UserDetailsService {
                 .roles("ADMIN")
                 .build();
     }
+
+
+
+
+
 }
