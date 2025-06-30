@@ -1,16 +1,16 @@
 package com.homepiter.admin.category.Requset;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Builder
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CategoryCreateRequest {
-    private String name;
-    private Long parentId;
-
+  public Long parentId ;
+  public String name ;
 
 }
-
-
-

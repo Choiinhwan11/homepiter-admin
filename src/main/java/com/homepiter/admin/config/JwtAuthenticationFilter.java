@@ -1,6 +1,5 @@
 package com.homepiter.admin.config;
 
-import com.homepiter.gateway.config.security.JwtTokenProvider;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
